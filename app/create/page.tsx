@@ -1,6 +1,6 @@
 "use client"
 import { FormEvent, useState } from "react"
-
+import generateDiagnoses from "@/tasks/generateDiagnoses";
 
 export default function CreatePage() {
     const [symptoms, setSymptoms] = useState<string[]>([]);
@@ -11,6 +11,7 @@ export default function CreatePage() {
          e.preventDefault();
          setLoading(true);
          console.log(symptoms);
+         generateDiagnoses(symptoms);
      } catch (error) {
         console.log(error); 
      } finally{

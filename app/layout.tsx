@@ -30,6 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <nav className="flex justify-around px-20 py-5 border-b-2">
             <Link href='/SignUp'>Sign Up</Link>
+            <Link href='/Login'>Login</Link>
             <Link href='/'>Home</Link>
             <Link href='/create'>Symptom Checker</Link>
             <Link href='/#how_it_works'>How it works</Link>
