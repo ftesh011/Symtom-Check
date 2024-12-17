@@ -12,18 +12,37 @@ export default async function generateDiagnoses(symptoms: string[]){
         //Generate Diagnoses
         const diagnosesPrompt =
         `
-        Output the 5 diagnoses based on only the following symptoms: 
-        ` + symptoms.join(',') + 
+        Output the 2 diagnosis based on only the following symptoms: 
+        ` + 
+    symptoms.join(',') + 
         `
-        \n
+
         Give each diagnosis a title.
         Format each diagnosis in a HTML body with sematic elements.
         Give back the results in JSON as follow:
         {
-         title: Diagnosis title,
-         diagnosis: 
+          title: Diagnosis title,
+          diagnosis: Two sentence description of diagnosis formatted in HTML
         }
-        `
+          Don't add any other markup. 
+        `;
+        console.log(diagnosesPrompt);
+
+        //OpenAI API call
+        const diagnosesCompletion = await openai.chat.completions.create({
+            messages: [
+                {
+                    role: 'user',
+                    content: diagnosesPrompt
+                }
+            ],
+            model:'gpt-4o-mini',
+            temperature: 0.3,
+            response_format: {type: 'json_object'}
+        });
+
+        console.log(diagnosesCompletion.choices[0].message.content);
+
 
     } catch (error) {
         console.log(error);
