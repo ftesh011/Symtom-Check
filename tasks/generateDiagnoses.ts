@@ -1,18 +1,31 @@
 'use server'
 import OpenAI from "openai";
+//import {v2 as cloudinary} from 'cloudinary';
+import mdbclient from "@/DiaDB";
+import { redirect } from "next/navigation";
 
 
+//Cloudnairy client
+//cloudinary.config({
+   // cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+   // api_key: process.env.CLOUDINARY_API_KEY,
+   // api_secret: process.env.CLOUDINARY_SECRET_KEY
+// });
+
+// AI client 
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 
 
 export default async function generateDiagnoses(symptoms: string[]){
-    try {
+    const db = await mdbclient.db('Symptom-Check');
+    let diagnosesPath;
+  try {
         console.log(symptoms);
 
         //Generate Diagnoses
         const diagnosesPrompt =
         `
-        Output the 2 diagnosis based on only the following symptoms: 
+        Output 2 diagnosis based on only the following symptoms: 
         ` + 
     symptoms.join(',') + 
         `
@@ -42,10 +55,41 @@ export default async function generateDiagnoses(symptoms: string[]){
         });
 
         console.log(diagnosesCompletion.choices[0].message.content);
+        const content = diagnosesCompletion.choices[0].message.content as string;
+        const diagnosesData = JSON.parse(content);
 
+        // //Generate image trial 1
+        // const diagnosesTitle = diagnosesData?.title;
+
+        // if(!diagnosesTitle) {
+        //     throw new Error("Diagnoses title is required for image output !");
+        // }
+        
+        // const imagePrompt = `${diagnosesTitle}, icon of health condition.`;
+
+        // //Open Dalle API call
+        // const imageCompletion = await openai.images.generate({
+        //     model: 'dall-e-2',
+        //     prompt: imagePrompt,
+        //     size: '1024x1024',
+        //     quality: 'standard'
+        // });
+
+        // console.log(imageCompletion);
+
+         // Mongodb storage of diagnoses
+         const savedDiagnoses = await db.collection('diagnoses').insertOne({
+            diagnoses_content: content, 
+         });
+
+         console.log(savedDiagnoses);
+
+         diagnosesPath = savedDiagnoses.insertedId;
 
     } catch (error) {
         console.log(error);
+    } finally {
+        redirect(`/diagnoses/${diagnosesPath}`);
     }
 }
 //Make sure to order them from top to bottom based on probabilty of the diagnosis.
