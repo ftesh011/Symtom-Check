@@ -25,17 +25,24 @@ export default async function generateDiagnoses(symptoms: string[]){
         //Generate Diagnoses
         const diagnosesPrompt =
         `
-        Output 2 diagnosis based on only the following symptoms: 
+        Output 5 diagnoses based on only the following symptoms: 
+        Make sure to order them from top to bottom based on probabilty of the diagnosis.
+        So have the most likley diagnosis at the top and the least likely diagnosis at the bottom.
+        Make sure u highlight how likely they are with a percentage.
+        Make sure you provide a description of the diagnosis, advice on how to ease the effects
+        of the symtopms and provide reccomendations on medicine that should be taken to help. Each 
+        diagnosis decription should be less than 500 words.
         ` + 
     symptoms.join(',') + 
         `
+
 
         Give each diagnosis a title.
         Format each diagnosis in a HTML body with sematic elements.
         Give back the results in JSON as follow:
         {
           title: Diagnosis title,
-          diagnosis: Two sentence description of diagnosis formatted in HTML
+          diagnosis: description of diagnosis less than 500 words formatted in HTML
         }
           Don't add any other markup. 
         `;

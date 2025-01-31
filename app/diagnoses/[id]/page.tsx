@@ -7,6 +7,15 @@ type DiagnosesProps = {
     }
 }
 
+interface Diagnosis {
+  title: string;
+  diagnosis: string;  // Changed from description to diagnosis to match the data
+}
+
+interface DiagnosesData {
+  diagnoses: Diagnosis[];
+}
+
 export default async function DiagnosesPage({params}: DiagnosesProps) {
     const {id} = params;
     const diagnoses = await getDiagnosesViaID(id);
@@ -14,15 +23,22 @@ export default async function DiagnosesPage({params}: DiagnosesProps) {
     if (!diagnoses) notFound();
 
     const {diagnoses_content} = diagnoses;
-    const diagnosesText = JSON.parse(diagnoses_content);
-    console.log(diagnosesText);
+    const diagnosesData: DiagnosesData = JSON.parse(diagnoses_content);
+    console.log(diagnosesData);
 
     return (
-    <div className="flex flex-col justify-center items-center p-24 lg:flex-row lg:gap-10">
-
-        <div>Diagnoses</div>
-
-        <div dangerouslySetInnerHTML={{__html: diagnosesText.
-            diagnoses}}/>
+    <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Your Diagnoses</h1>
+        <div className="space-y-6">
+            {diagnosesData.diagnoses.map((diagnosis, index) => (
+                <div key={index} className="border p-4 rounded-lg">
+                    <h2 className="text-xl font-semibold">{diagnosis.title}</h2>
+                    <div 
+                        className="mt-2"
+                        dangerouslySetInnerHTML={{ __html: diagnosis.diagnosis }}
+                    />
+                </div>
+            ))}
+        </div>
     </div>)
 }

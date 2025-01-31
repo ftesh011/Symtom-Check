@@ -49,6 +49,8 @@ export default function CreatePage() {
                     className="mt-5 border rounded bg-green-500 text-white p-1 mx-5 md:mx-0
                     border-green-500 hover:border-green-950 hover:cursor-pointer"
                     />
+                    <label className="bg-white-500 text-black p-1 mx-5 md:mx-0" >
+                    We are tyring to provide you the best results so please be patient as we provide the results</label>
                 </form>
 
              </div>
