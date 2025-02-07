@@ -2,12 +2,13 @@
 
 import mdbclient from "@/DiaDB";
 import { ObjectId } from "mongodb";
+import { Diagnoses } from "@/types";
 
 export async function getDiagnosesViaID(id: string) {
     try {
         const db = await mdbclient.db("Symptom-Check");
         const diagnoses = await db
-        .collection("diagnoses")
+        .collection<Diagnoses>("diagnoses")
         .findOne({ _id: ObjectId.createFromHexString(id) });
 
     if (!diagnoses) {

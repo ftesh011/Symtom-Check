@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Basic text styling */
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  /* Diagnosis title styling */
+  h2 {
+    @apply text-2xl font-bold text-blue-600 mb-4;
+  }
+
+  /* Percentage styling */
+  strong:has(:contains("Likelihood")) {
+    @apply text-lg text-green-600 font-semibold block mb-3;
+  }
+
+  /* Regular paragraph styling */
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  /* List styling */
+  ul, ol {
+    @apply mb-4 ml-6;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+}
+
+
+

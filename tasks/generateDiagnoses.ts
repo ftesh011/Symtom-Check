@@ -42,10 +42,11 @@ export default async function generateDiagnoses(symptoms: string[]){
         Give back the results in JSON as follow:
         {
           title: Diagnosis title,
-          diagnosis: description of diagnosis less than 500 words formatted in HTML
+          diagnosis: Percentage chance of diagnosis and description of diagnosis less than 500 words formatted in HTML
         }
-          Don't add any other markup. 
+          Don't add any other markup outside the specified structure. 
         `;
+
         console.log(diagnosesPrompt);
 
         //OpenAI API call

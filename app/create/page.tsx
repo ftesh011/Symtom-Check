@@ -11,7 +11,7 @@ export default function CreatePage() {
          e.preventDefault();
          setLoading(true);
          console.log(symptoms);
-         generateDiagnoses(symptoms);
+        await generateDiagnoses(symptoms);
      } catch (error) {
         console.log(error); 
      } finally{
@@ -42,12 +42,15 @@ export default function CreatePage() {
                     className="border mt-2 flex-1 p-1 font-sans"
                     placeholder="Enter symptoms seperated by commas: (ex: fatigue, coughing sweating)"
                      required
+                     disabled={loading}
                     />
                     
                     <input 
                     type="submit"
-                    className="mt-5 border rounded bg-green-500 text-white p-1 mx-5 md:mx-0
-                    border-green-500 hover:border-green-950 hover:cursor-pointer"
+                    className={`mt-5 border rounded bg-green-500 text-white p-1 mx-5 md:mx-0
+                    border-green-500 hover:border-green-950 hover:cursor-pointer ${loading && 'animate-pulse'}`}
+                    value={loading ?'generating...': 'submit'}
+                    disabled={loading} 
                     />
                     <label className="bg-white-500 text-black p-1 mx-5 md:mx-0" >
                     We are tyring to provide you the best results so please be patient as we provide the results</label>
