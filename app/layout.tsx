@@ -29,11 +29,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <nav className="flex justify-around px-20 py-5 border-b-2">
-            <Link href='/SignUp'>Sign Up</Link>
-            <Link href='/Login'>Login</Link>
-            <Link href='/'>Home</Link>
-            <Link href='/create'>Symptom Checker</Link>
-            <Link href='/#how_it_works'>How it works</Link>
+            <Link className='hover:underline' href='/SignUp'>Sign Up</Link>
+            <Link className='hover:underline'href='/Login'>Login</Link>
+            <Link className='hover:underline'href='/'>Home</Link>
+            <Link className='hover:underline'href='/create'>Symptom Checker</Link>
+            <Link className='hover:underline'href='/diagnoses2'>Previous Diagnoses</Link>
+            <Link className='hover:underline'href='/#how_it_works'>How it works</Link>
           </nav>
           {children}
           <footer className="px-20 py-5 border-t-2">

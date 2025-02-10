@@ -1,4 +1,5 @@
 import { getDiagnosesViaID } from "@/tasks";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type DiagnosesProps = {
@@ -28,8 +29,13 @@ export default async function DiagnosesPage({params}: DiagnosesProps) {
 
     return (
     <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Your Diagnoses</h1>
+
+    <Link href='/diagnoses2' className="text-lg font-Light hover:underline">Go back to your diagnoses</Link>
+
+
+        <h1 className="text-2xl font-bold mt-10">Your Diagnoses</h1>
         <div className="space-y-6">
+
             {diagnosesData.diagnoses.map((diagnosis, index) => (
                 <div key={index} className="border p-4 rounded-lg">
                     <h2 className="text-xl font-semibold">{diagnosis.title}</h2>
