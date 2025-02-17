@@ -3,6 +3,8 @@ import OpenAI from "openai";
 //import {v2 as cloudinary} from 'cloudinary';
 import mdbclient from "@/DiaDB";
 import { redirect } from "next/navigation";
+import { DiagnosesUserInput } from "@/types";
+import { generateDiagnosesPrompt } from "@/tools";
 
 
 //Cloudnairy client
@@ -16,83 +18,62 @@ import { redirect } from "next/navigation";
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 
 
-export default async function generateDiagnoses(symptoms: string[]){
+export default async function generateDiagnoses(symptoms: string[], diagnosesUserinput: DiagnosesUserInput){
     const db = await mdbclient.db('Symptom-Check');
     let diagnosesPath;
   try {
         console.log(symptoms);
 
         //Generate Diagnoses
-        const diagnosesPrompt =
-        `
-        Output 5 diagnoses based on only the following symptoms: 
-        Make sure to order them from top to bottom based on probabilty of the diagnosis.
-        So have the most likley diagnosis at the top and the least likely diagnosis at the bottom.
-        Make sure u highlight how likely they are with a percentage.
-        Make sure you provide a description of the diagnosis, advice on how to ease the effects
-        of the symtopms and provide reccomendations on medicine that should be taken to help. Each 
-        diagnosis decription should be less than 500 words.
-        ` + 
-    symptoms.join(',') + 
-        `
-
-
-        Give each diagnosis a title.
-        Format each diagnosis in a HTML body with sematic elements.
-        Give back the results in JSON as follow:
-        {
-          title: Diagnosis title,
-          diagnosis: Percentage chance of diagnosis and description of diagnosis less than 500 words formatted in HTML
-        }
-          Don't add any other markup outside the specified structure. 
-        `;
+        const diagnosesPrompt = generateDiagnosesPrompt(symptoms, diagnosesUserinput);
+     
 
         console.log(diagnosesPrompt);
 
         //OpenAI API call
-        const diagnosesCompletion = await openai.chat.completions.create({
-            messages: [
-                {
-                    role: 'user',
-                    content: diagnosesPrompt
-                }
-            ],
-            model:'gpt-4o-mini',
-            temperature: 0.3,
-            response_format: {type: 'json_object'}
-        });
-
-        console.log(diagnosesCompletion.choices[0].message.content);
-        const content = diagnosesCompletion.choices[0].message.content as string;
-        const diagnosesData = JSON.parse(content);
-
-        // //Generate image trial 1
-        // const diagnosesTitle = diagnosesData?.title;
-
-        // if(!diagnosesTitle) {
-        //     throw new Error("Diagnoses title is required for image output !");
-        // }
-        
-        // const imagePrompt = `${diagnosesTitle}, icon of health condition.`;
-
-        // //Open Dalle API call
-        // const imageCompletion = await openai.images.generate({
-        //     model: 'dall-e-2',
-        //     prompt: imagePrompt,
-        //     size: '1024x1024',
-        //     quality: 'standard'
+        // const diagnosesCompletion = await openai.chat.completions.create({
+        //     messages: [
+        //         {
+        //             role: 'user',
+        //             content: diagnosesPrompt
+        //         }
+        //     ],
+        //     model:'gpt-4o-mini',
+        //     temperature: 0.3,
+        //     response_format: {type: 'json_object'}
         // });
 
-        // console.log(imageCompletion);
+        // console.log(diagnosesCompletion.choices[0].message.content);
+        // const content = diagnosesCompletion.choices[0].message.content as string;
+        // const diagnosesData = JSON.parse(content);
 
-         // Mongodb storage of diagnoses
-         const savedDiagnoses = await db.collection('diagnoses').insertOne({
-            diagnoses_content: content, 
-         });
+        // // //Generate image trial 1
+        // // const diagnosesTitle = diagnosesData?.title;
 
-         console.log(savedDiagnoses);
+        // // if(!diagnosesTitle) {
+        // //     throw new Error("Diagnoses title is required for image output !");
+        // // }
+        
+        // // const imagePrompt = `${diagnosesTitle}, icon of health condition.`;
 
-         diagnosesPath = savedDiagnoses.insertedId;
+        // // //Open Dalle API call
+        // // const imageCompletion = await openai.images.generate({
+        // //     model: 'dall-e-2',
+        // //     prompt: imagePrompt,
+        // //     size: '1024x1024',
+        // //     quality: 'standard'
+        // // });
+
+        // // console.log(imageCompletion);
+
+        //  // Mongodb storage of diagnoses
+        //  const savedDiagnoses = await db.collection('diagnoses').insertOne({
+        //     diagnoses_content: content, 
+        //  });
+
+        //  console.log(savedDiagnoses);
+
+        //  diagnosesPath = savedDiagnoses.insertedId;
 
     } catch (error) {
         console.log(error);
