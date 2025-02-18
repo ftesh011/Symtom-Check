@@ -30,50 +30,50 @@ export default async function generateDiagnoses(symptoms: string[], diagnosesUse
 
         console.log(diagnosesPrompt);
 
-        //OpenAI API call
-        // const diagnosesCompletion = await openai.chat.completions.create({
-        //     messages: [
-        //         {
-        //             role: 'user',
-        //             content: diagnosesPrompt
-        //         }
-        //     ],
-        //     model:'gpt-4o-mini',
-        //     temperature: 0.3,
-        //     response_format: {type: 'json_object'}
+       // OpenAI API call
+        const diagnosesCompletion = await openai.chat.completions.create({
+            messages: [
+                {
+                    role: 'user',
+                    content: diagnosesPrompt
+                }
+            ],
+            model:'gpt-4o-mini',
+            temperature: 0.3,
+            response_format: {type: 'json_object'}
+        });
+
+        console.log(diagnosesCompletion.choices[0].message.content);
+        const content = diagnosesCompletion.choices[0].message.content as string;
+        const diagnosesData = JSON.parse(content);
+
+        // //Generate image trial 1
+        // const diagnosesTitle = diagnosesData?.title;
+
+        // if(!diagnosesTitle) {
+        //     throw new Error("Diagnoses title is required for image output !");
+        // }
+        
+        // const imagePrompt = `${diagnosesTitle}, icon of health condition.`;
+
+        // //Open Dalle API call
+        // const imageCompletion = await openai.images.generate({
+        //     model: 'dall-e-2',
+        //     prompt: imagePrompt,
+        //     size: '1024x1024',
+        //     quality: 'standard'
         // });
 
-        // console.log(diagnosesCompletion.choices[0].message.content);
-        // const content = diagnosesCompletion.choices[0].message.content as string;
-        // const diagnosesData = JSON.parse(content);
+        // console.log(imageCompletion);
 
-        // // //Generate image trial 1
-        // // const diagnosesTitle = diagnosesData?.title;
+         // Mongodb storage of diagnoses
+         const savedDiagnoses = await db.collection('diagnoses').insertOne({
+            diagnoses_content: content, 
+         });
 
-        // // if(!diagnosesTitle) {
-        // //     throw new Error("Diagnoses title is required for image output !");
-        // // }
-        
-        // // const imagePrompt = `${diagnosesTitle}, icon of health condition.`;
+         console.log(savedDiagnoses);
 
-        // // //Open Dalle API call
-        // // const imageCompletion = await openai.images.generate({
-        // //     model: 'dall-e-2',
-        // //     prompt: imagePrompt,
-        // //     size: '1024x1024',
-        // //     quality: 'standard'
-        // // });
-
-        // // console.log(imageCompletion);
-
-        //  // Mongodb storage of diagnoses
-        //  const savedDiagnoses = await db.collection('diagnoses').insertOne({
-        //     diagnoses_content: content, 
-        //  });
-
-        //  console.log(savedDiagnoses);
-
-        //  diagnosesPath = savedDiagnoses.insertedId;
+         diagnosesPath = savedDiagnoses.insertedId;
 
     } catch (error) {
         console.log(error);

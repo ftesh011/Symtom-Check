@@ -7,8 +7,20 @@ import { DiagnosesUserInput } from "@/types";
 
 const formatKey = (key: string) => {
     return key
-    .replace(/([A-Z])/g, "$1")
-    .replace(/^./, (str) => str.toUpperCase());
+        // Handle common compound words first - match the whole word
+        .replace(/symptoms/gi, 'symptoms')
+        .replace(/ofsymptoms/gi, ' of symptoms')
+        .replace(/tosick/gi, ' to sick ')
+        .replace(/individuals/gi, 'individuals')
+        .replace(/existing/gi, ' existing')
+        .replace(/conditions/gi, ' conditions')
+        // Then handle remaining cases
+        .replace(/([A-Z])/g, ' $1')
+        // Clean up any double spaces and trim
+        .replace(/\s+/g, ' ')
+        .trim()
+        // Make first letter uppercase, rest lowercase
+        .replace(/^./, (str) => str.toUpperCase());
 };
 
 export function generateDiagnosesPrompt(
@@ -26,15 +38,17 @@ export function generateDiagnosesPrompt(
         of the symtopms and provide reccomendations on medicine that should be taken to help. Each 
         diagnosis decription should be less than 500 words:\n`,
         ...symptoms,
-        'Make sure the diagnoeses use the following details\n',
+        'Make sure the diagnoeses use the following details:\n',
         //Make sure the diagnoses follows the following preferences\n
     ];
     // Loop over the diagnoses imputs by user add exclusions/inputs to array 
      Object.entries(diagnosesUserinput).forEach(([key, value]) =>{
         if(Array.isArray(value) && value.length > 0) {
             promptSegments.push(`User Exclusions: ${value.join(', ')}\n`)
-        } else{
-            promptSegments.push(`${formatKey(key)}: ${value}\n`)
+        } else {
+            // Skip formatting for userExclusions key
+            const formattedKey = key === 'userExclusions' ? key : formatKey(key);
+            promptSegments.push(`${formattedKey}: ${value}\n\n`)  // Added extra \n for spacing
         }
      }) 
 
