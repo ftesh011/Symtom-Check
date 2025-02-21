@@ -1,25 +1,26 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose")
+require('dotenv').config()
 
-mongoose.connect("mongodb://localhost:27017/SignUpLoginSection")
-.then(()=>{
-    console.log("mongodb connection positive");
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => {
+    console.log("MongoDB connection successful");
 })
-.catch(()=>{
-    console.log("Connection failed");
+.catch((error) => {
+    console.log("MongoDB Connection failed:", error.message);
 })
 
-const LoginSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+const LoginSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
     }
-})
+});
 
+const collection = mongoose.models.Collection1 || mongoose.model("Collection1", LoginSchema)
 
-const collection=new mongoose.model("Collection1",LoginSchema)
-
-module.exports=collection
+module.exports = { collection }
