@@ -5,7 +5,7 @@ import mdbclient from "@/DiaDB";
 import { redirect } from "next/navigation";
 import { DiagnosesUserInput } from "@/types";
 import { generateDiagnosesPrompt } from "@/tools";
-
+import { getSession } from "@/hold/auth";   
 
 //Cloudnairy client
 //cloudinary.config({
@@ -66,9 +66,18 @@ export default async function generateDiagnoses(symptoms: string[], diagnosesUse
 
         // console.log(imageCompletion);
 
+        // User ID will be from the session token 
+        const session = await getSession();
+        if (!session?.user?.id) {
+            console.log("Session",session)
+            throw new Error("Log in to get diagnoeses");
+        }
+
          // Mongodb storage of diagnoses
          const savedDiagnoses = await db.collection('diagnoses').insertOne({
             diagnoses_content: content, 
+            userid: session.user.id,
+            createdAt: new Date()
          });
 
          console.log(savedDiagnoses);

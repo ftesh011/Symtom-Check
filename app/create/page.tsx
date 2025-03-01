@@ -114,6 +114,7 @@ export default function CreatePage() {
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
                     </select>
 
 
@@ -126,6 +127,7 @@ export default function CreatePage() {
                     onChange={handleChange}
                     >
                         <option value="" disabled >Choose how long you have had the symptoms</option>
+                        <option value="Less than 24 hours">Less than 24 hours</option>
                         <option value="1-2 days">1-2 days</option>
                         <option value="3-5 days">3-5 days</option>
                         <option value="6-10 days">6-10 days</option>
@@ -185,6 +187,7 @@ export default function CreatePage() {
                        <option value="Environmental Allergies">Environmental Allergies</option>
                        <option value="Insect Allergies">Insect Allergies</option>
                        <option value="Chemical Allergies">Chemical Allergies</option>
+                       <option value="No Allergies">No Allergies</option>
                     </select>
 
                     {/* {/*

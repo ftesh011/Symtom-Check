@@ -7,7 +7,7 @@ export default async function DiagnosesPage() {
     return (
         <div className="text-3xl font-bold font-serif mb-10">
             <h1>Diagnoses</h1>
-
+                        
             <div className="grid grid-col gap-4 md:grid-cols-2
             lg:grid-cols-4">
                 {diagnoses && diagnoses.map(diagnoses => (

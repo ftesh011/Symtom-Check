@@ -4,6 +4,8 @@ export type Diagnoses = {
     _id: ObjectId;
     title: string;
     diagnoses_content: string;
+    userid: string; // Added to connect user to their diagnoses 
+    createdAt: Date;
 }
 
 export type DiagnosesUserInput = {

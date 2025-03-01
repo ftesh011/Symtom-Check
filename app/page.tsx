@@ -1,12 +1,18 @@
 import Image from "next/image";
 import Link from "next/link"; 
-// Crtl + Z
+import LogoutBtn from "@/elements/logoutbtn";
+
 export default function Home() {
   return (
       <main className="flex min-srenn flex-col p-24 md:px-24 lg:px-48 font-serif">
-        <h1 className="text-5xl mt-10 mb-2">SympTrack</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-5xl">SympTrack</h1>
+          <div className="border-2 border-blue-500">
+          <LogoutBtn />
+          </div>
+        </div>
 
-     <p className='text-2xl mb-10'>"Do you have symptoms of an illness and would like to know what you are suffering from."</p>   
+        <p className='text-2xl mb-10'>"Do you have symptoms of an illness and would like to know what you are suffering from."</p>   
 
 
      <div className= "w-full h-auto">
