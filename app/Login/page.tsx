@@ -44,9 +44,9 @@ export default function LoginPage() {
 
     return( 
     <div className="min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-5xl font-mono mb-8">Login</h1>
+        <h1 className="text-5xl font-serif mb-8">Login</h1>
 
-        <p>Welcome Login below</p>
+        <p className="font-serif">Welcome Login below</p>
         
         {error && <div className="text-red-500 mb-4">{error}</div>}
         {success && <div className="text-green-500 mb-4">{success}</div>}
@@ -68,13 +68,13 @@ export default function LoginPage() {
             />
             <button 
                 type="submit"
-                className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+                className="w-full bg-blue-800 text-white p-2 rounded hover:bg-blue-800"
             >
                 Login
             </button>
         </form>
         
-        <a href="/SignUp" className="mt-4 text-blue-500">Need an account? Sign Up</a>
+        <a href="/SignUp" className="mt-4 text-blue-800">Need an account? Sign Up</a>
     </div> 
     )
 }

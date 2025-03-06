@@ -43,9 +43,9 @@ export default function SignUpPage() {
   // Notfications for successful and unsuccesful sign ups
 	return (
 		<div className="min-h-screen flex flex-col items-center justify-center">
-			<h1 className="text-5xl font-mono mb-8">Sign Up</h1>
+			<h1 className="text-5xl font-serif mb-8">Sign Up</h1>
 			
-			<p>Welcome Sign Up below</p>
+			<p className="font-serif">Welcome Sign Up below</p>
 
 			{error && <div className="text-red-500 mb-4">{error}</div>}
 			{success && <div className="text-green-500 mb-4">{success}</div>}
@@ -68,13 +68,13 @@ export default function SignUpPage() {
 				/>
 				<button 
 					type="submit"
-					className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+					className="w-full bg-blue-800 text-white p-2 rounded hover:bg-blue-800"
 				>
 					Sign Up
 				</button>
 			</form>
 			
-			<a href="/Login" className="mt-4 text-blue-500">Already have an account? Login</a>
+			<a href="/Login" className="mt-4 text-blue-800">Already have an account? Login</a>
 		</div>
 	)
 }

@@ -64,14 +64,14 @@ export default function CreatePage() {
 
 
     return(
-        <div className="h-full bg-gradient-to-r from-green-200 to bg-red-700" >
-            <h1 className="text-5xl font-mono pt-10 ml-5">Find the Diagnosis</h1>
+        <div className="h-full bg-gradient-to-r from-blue-200 to bg-blue-900" >
+            <h1 className="text-5xl pt-10 ml-5 font-serif">Find the Diagnosis</h1>
 
              <div className="flex flex-col items-center">
                 <form onSubmit={handleSubmit} className="flex flex-col w-[50%] h-[50%]">
                     <label 
                     htmlFor="symptoms"
-                    className="font-bold text-lg text-center underline mt-10"
+                    className="font-bold text-lg text-center underline mt-10 font-serif"
                 >
                     What symptoms are you experiencing?
                     </label>

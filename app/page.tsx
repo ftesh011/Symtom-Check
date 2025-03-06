@@ -7,12 +7,13 @@ export default function Home() {
       <main className="flex min-srenn flex-col p-24 md:px-24 lg:px-48 font-serif">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-5xl">SympTrack</h1>
-          <div className="border-2 border-blue-500">
+          <div className="mt-5 border rounded border-blue-500">
           <LogoutBtn />
           </div>
         </div>
 
-        <p className='text-2xl mb-10'>"Do you have symptoms of an illness and would like to know what you are suffering from."</p>   
+        <p className='text-2xl mb-10'>Do you have symptoms of an illness and would like to know what you are suffering from. Do not have the luxury or the time to
+          book an appointment with your doctor? We are here to help you. </p>   
 
 
      <div className= "w-full h-auto">
@@ -29,18 +30,26 @@ export default function Home() {
      <p className="text-4xl pb-5">
       Do not worry about the possibilites of what you may be suffering from 
      </p>
-     <Link href='/create'className="text-lg">Get started</Link>
+     <Link href='/create'className="text-lg underline text-blue-900">Get started</Link>
      <hr />
      </section>
 
      <section id="how_it_works" className="text-2xl p-10 leading-loose">
      <ul>
-      <h2>How it works</h2>
+      <h2 className=" font-serif text-semibold underline text-blue-900">How it works</h2>
       <li>
-        1. How it works 
+        1. Sign up and create an account so you can login in later to access your past records
       </li>
       <li>
-        2. How it works
+        2. Go to the Symptom Checker and enter your symptoms and fill out the form. Filling out the form below
+        is not compulsury but will help us to provide you with the best results.
+      </li>
+      <li>
+        3. Press the submit button and wait for the results.
+      </li>
+      <li>
+        4. You will then be give a list of probable diagnoses which will show the likelihood of each diagnosis and 
+        information and advice.
       </li>
      </ul>
      
@@ -48,18 +57,23 @@ export default function Home() {
      
      <section id="why_use_us"className="text-2xl p-10 leading-loose">
      <ul>
-      <h2>Why us</h2>
+      <h2 className=" font-serif text-semibold underline text-blue-900">Why us</h2>
         <li>
-        1. Reason why
+        Symtrack gives you a mordern and effcient method of finding out what you may be suffering from. 
+        We know the daily challenges that many people face when it come to getting medical help. You might be
+        busy and do not have the time to see a medical professional or you might in an area where there are a lack of health facilites. 
+        Symtrack gives you a way to find help in the comfort of your own home. Bringing the help to you with a click of a button.
          </li>
          <li>
-           2. Reason why
+           Symtrack does not require to travel,book or wait to get results. Our goal is to provide you with a
+           a way to get help without wasting yout time or energy. We also aim that we provide medical help to 
+           as many people reagardless of situation.
          </li>
        </ul>
      </section>
 
      <section id="testimonies"className="text-2xl p-10 leading-loose">
-      <h2>Testimonies</h2>
+      <h2 className=" font-serif text-semibold underline text-blue-900">Testimonies</h2>
       <p>
         "This app is great I wish I had known about it earlier.
         In the past I have struggled with finding the condition sthat I have"-John
