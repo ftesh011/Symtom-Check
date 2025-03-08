@@ -3,6 +3,7 @@
 
 'use client'
 import {useState} from 'react'
+import {useRouter} from 'next/navigation'
 
 // Items from the store will be converted into a basket item
 interface BasketProduct {
@@ -17,11 +18,19 @@ interface BasketProps {
     onUpdateQuantity:(id:number,quantity:number)=>void;
 }
 export default function Basket({items, onRemoveProduct, onUpdateQuantity}:BasketProps) {
+    const router = useRouter();
     // Establishing the status of the basket and total price if the basket
     const total = items.reduce((sum, item) => {
         const price = parseFloat(item.price.replace('£', ''));
         return sum + price * item.quantity;
 },0);
+const handleCheckout=()=>{
+    if(items.length===0){
+        alert("Basket is empty");
+        return;
+    }
+    router.push('/checkout');
+};
 return (
     <div className="border rounded-lg p-4 bg-white shadow-md">
         <h2 className="text-lg font-medium mb-4">Shopping Basket</h2>
@@ -63,7 +72,8 @@ return (
             ))}
             <div className="mt-4 pt-2 border-t">
                 <p className="text-xl font-bold">Total: £{total.toFixed(2)}</p>
-                <button className="mt-2 w-full bg-blue-600 text-white px-4 rounded hover:bg-blue-900">
+                <button onClick={handleCheckout} 
+                className="mt-2 w-full bg-blue-600 text-white px-4 rounded hover:bg-blue-900">
                     Checkout
                 </button>
             </div>
