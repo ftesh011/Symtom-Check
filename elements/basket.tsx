@@ -29,7 +29,11 @@ const handleCheckout=()=>{
         alert("Basket is empty");
         return;
     }
-    router.push('/checkout');
+    const params = new URLSearchParams({
+        items: encodeURIComponent(JSON.stringify(items)),
+        total: total.toString()
+    });
+    router.push(`/checkout?${params.toString()}`);
 };
 return (
     <div className="border rounded-lg p-4 bg-white shadow-md">

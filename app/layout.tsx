@@ -36,6 +36,7 @@ export default function RootLayout({
             <Link className='hover:underline'href='/diagnoses2'>Previous Diagnoses</Link>
             <Link className='hover:underline'href='/#how_it_works'>How it works</Link>
             <Link className='hover:underline'href='/store'>Store</Link>
+            <Link className='hover:underline'href='/orders'>Orders</Link>
           </nav>
           {children}
           <footer className="px-20 py-5 border-t-2 border-gray-700 shadow-md">

@@ -20,3 +20,18 @@ export type DiagnosesUserInput = {
     userExclusions: string[];
 };
 
+// Prevoius ordered item elements
+
+export type previousOrderItem={
+    productName:string;
+    price: string;
+    quantity:string;
+}
+export type previousOrder={
+    _id:ObjectId;
+    userid:string;
+    items:previousOrderItem[];
+    totalAmount:string;
+    shippingAddress:string;
+    orderDate:Date;
+}
