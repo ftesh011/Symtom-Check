@@ -31,7 +31,7 @@ export async function POST(request: Request) {
             process.env.JWT_SECRET || 'your-fallback-secret',
         )
         const response=NextResponse.json(
-            { message: "Login successful", token },
+            { message: "Login successful", token, name:user.name },
             { status: 200 }
         )
         // Session token 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import UserVisualLogin from "@/elements/userVisuallogin";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,15 +29,18 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <nav className="flex justify-around px-20 py-5 border-b-2 border-gray-700 shadow-md font-serif">
-            <Link className='hover:underline' href='/SignUp'>Sign Up</Link>
-            <Link className='hover:underline'href='/Login'>Login</Link>
-            <Link className='hover:underline'href='/'>Home</Link>
-            <Link className='hover:underline'href='/create'>Symptom Checker</Link>
-            <Link className='hover:underline'href='/diagnoses2'>Previous Diagnoses</Link>
-            <Link className='hover:underline'href='/#how_it_works'>How it works</Link>
-            <Link className='hover:underline'href='/store'>Store</Link>
-            <Link className='hover:underline'href='/orders'>Orders</Link>
+          <nav className="flex justify-between px-20 py-5 border-b-2 border-gray-700 shadow-md font-serif">
+            
+            <Link className='hover:underline text-lg font-medium' href='/SignUp'>Sign Up</Link>
+            <Link className='hover:underline text-lg font-medium'href='/Login'>Login</Link>
+            <Link className='hover:underline text-lg font-medium'href='/'>Home</Link>
+            <Link className='hover:underline text-lg font-medium'href='/create'>Symptom Checker</Link>
+            <Link className='hover:underline text-lg font-medium'href='/diagnoses2'>Previous Diagnoses</Link>
+            <Link className='hover:underline text-lg font-medium'href='/#how_it_works'>How it works</Link>
+            <Link className='hover:underline text-lg font-medium'href='/store'>Store</Link>
+            <Link className='hover:underline text-lg font-medium'href='/orders'>Orders</Link>
+            
+            <UserVisualLogin/>
           </nav>
           {children}
           <footer className="px-20 py-5 border-t-2 border-gray-700 shadow-md">
