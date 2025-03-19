@@ -83,6 +83,76 @@ const medicinalproducts = [
         price: "£6.99",
         image: "/ill_Lady.png"  //placeholder for appropriate image    
     },
+    {
+        id: 11,
+        productname: "Fiber Supplements",
+        description: "Supplements for regulating digestion and supports gut health",
+        price: "£9.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 12,
+        productname: "Laxatives",
+        description: "Used to relives constipations and imporves regualr bowel movements",
+        price: "£8.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 13,
+        productname: "Probiotics",
+        description: "Support gut health and used for bloating, diarrhea and antibiotic side effects",
+        price: "£10.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 14,
+        productname: "Electrolyte fluids",
+        description: "Used to provide needed fluids and minerlas ina a time of dehydration from illness, heat or exercise",
+        price: "£11.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 15,
+        productname: "Melatonin",
+        description: "An organic sleep aid to help with sleeep disorders speciffically for insomia or jet lag",
+        price: "£8.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 16,
+        productname: "Bismuth Subsalicylate",
+        description: "Helps with stomache problems such as nausea, diarrhea, indigestion and upset stomach",
+        price: "£7.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 17,
+        productname: "Activated Charcoal",
+        description: "Used to asorb harmful toxins in cases of mild food poisoning or digestive discomfort",
+        price: "£10.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 18,
+        productname: "Topical pain relievers",
+        description: "Provides relief from pain sore muscles, joint pain and minor injuries",
+        price: "£12.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 19,
+        productname: "Oral Anesthetic",
+        description: "Helps to numb pain in the oral area like toothaches, gum irritrations and mouth sores",
+        price: "£9.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
+    {
+        id: 20,
+        productname: "Aloe Vera Gel",
+        description: "Used to soothe burns, surnburns and skin irritations",
+        price: "£7.99",
+        image: "/ill_Lady.png"  //placeholder for appropriate image    
+    },
 ]
 
 export default function StorePage() {

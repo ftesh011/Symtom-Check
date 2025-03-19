@@ -35,7 +35,9 @@ export function generateDiagnosesPrompt(
         So have the most likley diagnosis at the top and the least likely diagnosis at the bottom.
         Make sure u highlight how likely they are with a percentage.
         Make sure you provide a description of the diagnosis, advice on how to ease the effects
-        of the symtopms and provide reccomendations on medicine that should be taken to help. Each 
+        of the symptoms and reccomend these medical products:[Acetaminophen,Ibuprofen,Naproxen,Paracetamol,Aspirin,Acid reducers,
+        Antifungal Cream,Hydrocortisone Cream,Loperamide,Meclizine,Fibersupplements,Laxatives,Probiotics,Electrolyte fluids,
+        Melatonin,Bismuth Subsalicylate,Activated Charcoal,Topical pain relievers,Oral Anesthetic,Aloe Vera Gel] which are the most likely to help. Each 
         diagnosis decription should be less than 500 words:\n`,
         ...symptoms,
         'Make sure the diagnoeses use the following details:\n',

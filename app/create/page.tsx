@@ -80,7 +80,7 @@ export default function CreatePage() {
                     onChange={(e) => setSymptoms(e.target.value.split(","))}
                     id="symptoms"
                     className="border mt-2 p-1 font-sans"
-                    placeholder="Enter symptoms seperated by commas: (ex: fatigue, coughing sweating)"
+                    placeholder="Enter symptoms seperated by commas: (ex: fatigue, coughing, sweating)"
                      required
                      disabled={loading}
                     />
@@ -126,7 +126,7 @@ export default function CreatePage() {
                     value={diagnosesUserinput.durationofsymptoms}
                     onChange={handleChange}
                     >
-                        <option value="" disabled >Choose how long you have had the symptoms</option>
+                        <option value="" disabled >How long have you had the symptoms?</option>
                         <option value="Less than 24 hours">Less than 24 hours</option>
                         <option value="1-2 days">1-2 days</option>
                         <option value="3-5 days">3-5 days</option>
@@ -145,7 +145,7 @@ export default function CreatePage() {
                     value={diagnosesUserinput.severityofsymptoms}
                     onChange={handleChange}
                     >
-                        <option value="" disabled >Choose how severe the symptoms are</option>
+                        <option value="" disabled >How severe are the symptoms?</option>
                         <option value="mild">mild</option>
                         <option value="moderate">moderate</option>
                         <option value="severe">severe</option>

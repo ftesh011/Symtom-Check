@@ -7,30 +7,17 @@ type DiagnosesCardProps = {
 
 
 export default function DiagnosesCard({diagnoses}: DiagnosesCardProps) {
-    const {diagnoses_content,title,_id} = diagnoses;
+    const {diagnoses_content,title,_id,createdAt} = diagnoses;
 
     return (
-       <Link href={`/diagnoses/${_id}`} className='flex flex-col border rounded
-       hover:scale-105 hover:transtion hover:ease-in-out hover:delay-150'>
-        <h2>{title}</h2>
+       <Link href={`/diagnoses/${_id}`} className='border-4 hover:bg-blue-900 disabled:opacity-50 rounded-lg p-4 m-2'>
+        <h2 className="text-xl font-bold text-blue-900 mb-4">{title}</h2>
 
-        <div>
-            <Image
-            src='/Ill_Lady.jpg'
-            alt={title}
-            width={400}
-            height={400}
-            sizes="100vw"
-            style={{width: '100%', height: '100%'}}
-            />
+        <div className="p-5 text-blue-800 font-semibold">
+            <p>Probable Diagnoses results:{new Date(createdAt).toLocaleDateString("en-GB")}</p>
         </div>
       </Link>
 
     )
 } 
 
-
-
-{/* <div>
-<p>{diagnoses_content}</p>
-</div> */}

@@ -16,16 +16,16 @@ return (
         <h1 className='text-2xl font-bold mb-4'>Previous Orders</h1>
         <div className='space-y-4'>
             {orders.map((order)=>
-            <div key={order._id.toString()} className="border p-2 rounded">
+            <div key={order._id.toString()} className="border-4 border-blue-900 rounded-lg p-4 m-2 bg-blue-300">
               <div className="flex justify-between mb-4">
                 <div>
-                    <p className='text-sm text-blue-800'>Order ID: {order._id.toString()}</p>
-                    <p className='text-sm text-blue-800'>Order Date: {new Date (order.orderDate).toLocaleDateString()}</p>
+                    <p className='text-lg font-semi-bold text-blue-900'>Order ID: {order._id.toString()}</p>
+                    <p className='text-lg font-semi-bold text-blue-900'>Order Date: {new Date (order.orderDate).toLocaleDateString("en-GB")}</p>
                 </div>
                 <div>
-                    <p className='text-sm text-blue-800'>Total Amount: £{order.totalAmount}</p>
+                    <p className='text-lg font-semi-bold text-blue-900'>Total Amount: £{order.totalAmount}</p>
                 </div>
-                <div className="text-sm text-blue-800">
+                <div className="text-lg text-blue-900">
                     {order.items.map ((item,i)=>(
                         <div key={i} className="flex justify-between py-4">
                             <p>{item.productName} x {item.quantity}</p>
@@ -34,7 +34,7 @@ return (
                     ))}
 
                 </div>
-                <div className="text-sm text-blue-800">
+                <div className="text-lg font-semi-bold text-blue-900">
                     <p>Shipping to: {order.shippingAddress}</p>
                 </div>
               </div>
