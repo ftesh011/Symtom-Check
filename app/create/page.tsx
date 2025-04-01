@@ -165,21 +165,6 @@ export default function CreatePage() {
                     onChange={handleChange}
                     >
                         <option value="" disabled >If you have any allergies what type of allergies do you have</option>
-                        {/* <option value="Milk">Milk</option>
-                        <option value="Eggs">Peanuts</option>
-                        <option value="Tree Nuts">Tree Nuts</option>
-                        <option value="Soy">Soy</option>
-                        <option value="Gluten">Gluten</option>
-                        <option value="Fish">Fish</option>
-                        <option value="Shellfish">mild</option>
-                        <option value="Sesame">Sesame</option>
-                        <option value="Mustard Seeds">Mustard Seeds</option>
-                        <option value="Pollen">Pollen</option>
-                        <option value="Dust Mites">Dust Mites</option>
-                        <option value="Mold Spores">Mold Spores</option>
-                        <option value="Pet Dander">Pet Dander</option>
-                        <option value="Cockroach Droppings">Cockroach Droppings</option>
-                        <option value="Feathers">Feathers</option> */}
                        <option value="Food Allergies">Food Allergies</option>
                        <option value="Seasonal Allergies">Seasonal Allergies</option>
                        <option value="Drug/Medical Allergies">Drug/Medical Allergies</option>

@@ -29,7 +29,7 @@ return (
                     {order.items.map ((item,i)=>(
                         <div key={i} className="flex justify-between py-4">
                             <p>{item.productName} x {item.quantity}</p>
-                            <p>£{item.price}</p>
+                            <p>{item.price}</p>
                         </div>
                     ))}
 

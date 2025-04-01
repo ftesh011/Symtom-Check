@@ -44,14 +44,24 @@ export default function RootLayout({
           </nav>
           {children}
           <footer className="px-20 py-5 border-t-2 border-gray-700 shadow-md">
-            <p className="text-lg font-serif">
+            <h1 className="text-lg font-serif font-bold">
             Important Notice 
-            </p>
+            </h1>
             <div className="font-serif">SymTrack is an application that provides proabale diagnoses to symptoms. 
               SymTrack does not provide a definite diagnoses and would output likely diagnoses
               which are based on common symtpoms. We strongly advise to consult with a medical professional and do further
               reserach before making any decisions related significant health issues that may have major implications. SymTrack
               specializes in providing information and resources to common and minor conditions.
+              <div className="mt-5">
+              <h2 className="text-x1 font-serif font-bold">Contact Us</h2>
+              To contact us please email us at SymTrackSupport@gmail.com
+              If you want to keep up with our latest news and updates please follow us on our social media platforms
+              <div className="mt-5">
+              Instagram: @SymTrack
+              Twitter: @SymTrack
+              Facebook: @SymTrack
+              </div>
+              </div>
             </div>
           </footer>
         </body>

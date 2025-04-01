@@ -225,35 +225,3 @@ export default function StorePage() {
 );
 }
         
-
-
-// /* <div className="p-5">
-//             <h1 className="text-4xl font-bold mb-10">Store</h1>
-//             <p className="text-sm">Welcome to the store. Here you can purchase medicinal products that do not require a prescription.
-//                 These products are not necessarily inteded to cure the problem rather to ease the affects of the symptoms</p>
-
-//             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-//                 {medicinalproducts.map((product) => (
-//                     <div key={product.id} className="border rounded-lg p-4 shadow-md">
-//                         <h2 className="text-xl font-bold ">{product.productname}</h2>
-//                         <p className="text-gray-600 mb-2">{product.description}</p>
-//                         <p className="text-lg font-bold">{product.price}</p>
-//                         <button
-//                         onClick={() = > addToBasket(product)} 
-//                         className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-900">
-//                             Add to Basket
-//                         </button>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//         <div className="w-80 sticky top-4">
-//             <Basket
-//             items={basket}
-//             onRemoveProduct={removeFromBasket}
-//             onUpdateQuantity={updateQuantity}
-//             />
-//         </div>
-//         </div>
-//     );
-// } 

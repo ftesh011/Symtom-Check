@@ -72,18 +72,60 @@ export default function Home() {
        </ul>
      </section>
 
-     <section id="testimonies"className="text-2xl p-10 leading-loose">
-      <h2 className=" font-serif text-semibold underline text-blue-900">Testimonies</h2>
+     <section id="step_by_step"className="text-2xl p-10 leading-loose">
+      <h2 className=" font-serif text-semibold underline text-blue-900">How to get probables diagnoses</h2>
       <p>
-        "This app is great I wish I had known about it earlier.
-        In the past I have struggled with finding the condition sthat I have"-John
+        To get your probables diagnoses you will need to follow the steps below:
       </p>
-      <p>
-        "Wow great I would reccommened this tyo famliy and freinds.
-        I am also A health pofessional and would use this on my patients"-Lenny
-      </p>
-     </section>
+      <div className="space-y-4">
+      <div>
+      <li>
+        1. First go to the Symptom Checker which will be located on the Symptom Checker page.
+      </li>
+        <div className="mt-4 w-full relative h-[600px]">
+          <Image
+          src="/symcheck img.png"
+          alt="Go to symptom checker"
+          fill
+          style={{objectFit:'contain'}}
+          className="rounded-lg shadow-lg"
+          />
+        </div>
+        </div>
 
+        <div>
+      <li>
+        2. Enter your symptoms and fill out the form. Filling out the form is not compulsury but can help us
+        to provide the most likely diagnoses. After entering your symptoms press the submit button.
+      </li>
+       <div className="mt-4 w-full relative h-[600px]">
+          <Image
+          src="/symcheck input and enter img.png"
+          alt="input and enter"
+          fill
+          style={{objectFit:'contain'}}
+          className="rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+
+      <div>
+      <li>
+        3. Finally you will have the list of probable diagnoses.
+      </li>
+      <div className="mt-4 w-full relative h-[600px]">
+          <Image
+          src="/results diagnoses img.png"
+          alt="results diagnoses"
+          fill
+          style={{objectFit:'contain'}}
+          className="rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+      </div>
+     </section>
+     
    </main>
   );
 }

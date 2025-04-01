@@ -65,29 +65,3 @@ export async function getAllDiagnoses() {
     }
 
 }
-
-
-
-
-// /**
-//  * Retrieve all diagnoses
-//  * 
-//  * @returns an array of diagnoses
-//  */
-// export async function getAllDiagnoses() {
-//   try {
-//     // User ID will be retrived from the session token
-//     const session =await getSession();
-//     const userid =session?.user?.id;
-
-//     const diagnoses = await db.collection<Diagnoses>("diagnoses").find({userid: userid}).toArray();
-  
-//     if (!diagnoses) {
-//       throw new Error("Error fetching diagnoses from database!");
-//     }
-//     return diagnoses;
-//   } catch (error) {
-//     console.log(error);
-//   }
-
-// }
