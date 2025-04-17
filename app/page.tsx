@@ -6,7 +6,7 @@ export default function Home() {
   return (
       <main className="flex min-srenn flex-col p-24 md:px-24 lg:px-48 font-serif">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-5xl">SympTrack</h1>
+          <h1 className="text-5xl">SymTrack</h1>
           <div className="mt-5 border rounded border-blue-500">
           <LogoutBtn />
           </div>

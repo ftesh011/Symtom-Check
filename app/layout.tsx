@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SympTrack",
+  title: "SymTrack",
   description: "Find out what you may be suffering from your symptoms",
 };
 
