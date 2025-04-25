@@ -65,8 +65,8 @@ export default function Home() {
         Symtrack gives you a way to find help in the comfort of your own home. Bringing the help to you with a click of a button.
          </li>
          <li>
-           Symtrack does not require to travel,book or wait to get results. Our goal is to provide you with a
-           a way to get help without wasting yout time or energy. We also aim that we provide medical help to 
+           Symtrack does not require you to travel,book or wait to get results. Our goal is to provide you with a
+           way to get help without wasting your time or energy. We also aim to provide medical help to 
            as many people reagardless of situation.
          </li>
        </ul>

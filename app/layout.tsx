@@ -48,7 +48,7 @@ export default function RootLayout({
             Important Notice 
             </h1>
             <div className="font-serif">SymTrack is an application that provides proabale diagnoses to symptoms. 
-              SymTrack does not provide a definite diagnoses and would output likely diagnoses
+              SymTrack does not provide definite diagnoses and would output likely diagnoses
               which are based on common symtpoms. We strongly advise to consult with a medical professional and do further
               reserach before making any decisions related significant health issues that may have major implications. SymTrack
               specializes in providing information and resources to common and minor conditions.
